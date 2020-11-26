@@ -7,10 +7,19 @@ namespace DependencyInjectionSample
 {
     public static class FactoryExtensions
     {
-        public static IFactory GetFactory<TFactory>(this IEnumerable<IFactory> factories)
-        where TFactory : class, IFactory
+        public static IFactory SalesFactory(this IEnumerable<IFactory> factories)
         {
-            return factories.First(factory => factory is TFactory);
+            return factories.First(x => x is SalesFactory);
+        }
+
+        public static IFactory ManagerFactory(this IEnumerable<IFactory> factories)
+        {
+            return factories.First(x => x is ManagerFactory);
+        }
+
+        public static IFactory AccountsFactory(this IEnumerable<IFactory> factories)
+        {
+            return factories.First(x => x is AccountsFactory);
         }
     }
 }

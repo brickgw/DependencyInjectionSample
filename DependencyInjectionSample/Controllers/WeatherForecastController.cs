@@ -21,9 +21,9 @@ namespace DependencyInjectionSample.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var sales = await _factories.GetFactory<SalesFactory>().Create();
-            var accounts = await _factories.GetFactory<AccountsFactory>().Create();
-            var managers = await _factories.GetFactory<ManagerFactory>().Create();
+            var sales = await _factories.SalesFactory().Create();
+            var accounts = await _factories.AccountsFactory().Create();
+            var managers = await _factories.ManagerFactory().Create();
 
             return Ok($"{sales}\n{accounts}\n{managers}");
         }
